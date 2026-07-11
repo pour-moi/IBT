@@ -13,4 +13,7 @@
 #Tax comperhension
 prices = [100, 250, 400, 80]
 tax = [p * 1.15 for p in prices]
-print(tax)
+# print(tax)
+
+cheap = [cheap_item for cheap_item in prices if cheap_item < 200]
+print(cheap)

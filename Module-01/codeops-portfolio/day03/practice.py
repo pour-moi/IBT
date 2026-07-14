@@ -20,10 +20,23 @@ cheap = [cheap_item for cheap_item in prices if cheap_item < 200]
 
 #Write and Read
 
-customer_names = ["Abebe", "Kebede", "Almaz"]
-with open("names.txt", "w") as f:
-    for customer in customer_names:
-        f.write(f"{customer}\n")
-with open("names.txt", "r") as names:
-    for line in names:
-        print(line);
+# customer_names = ["Abebe", "Kebede", "Almaz"]
+# with open("names.txt", "w") as f:
+#     for customer in customer_names:
+#         f.write(f"{customer}\n")
+# with open("names.txt", "r") as names:
+#     for line in names:
+#         print(line);
+
+#Safe Division
+try:
+    input_number = int(input("Input a number to divide "))
+    print(1000/input_number)
+except ValueError:
+    print("Enter valid integer")
+except ZeroDivisionError:
+    print("Can't divide when 0 is numerator")
+else:
+    print("Finished Dividing")
+finally:
+    print("!!Done!!")

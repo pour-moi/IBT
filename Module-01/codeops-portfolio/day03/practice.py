@@ -16,4 +16,14 @@ tax = [p * 1.15 for p in prices]
 # print(tax)
 
 cheap = [cheap_item for cheap_item in prices if cheap_item < 200]
-print(cheap)
+# print(cheap)
+
+#Write and Read
+
+customer_names = ["Abebe", "Kebede", "Almaz"]
+with open("names.txt", "w") as f:
+    for customer in customer_names:
+        f.write(f"{customer}\n")
+with open("names.txt", "r") as names:
+    for line in names:
+        print(line);

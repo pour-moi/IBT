@@ -35,6 +35,10 @@ class Account:
 class SMSAlert:
     def update(self, event):
         print(f"[SMS] {event}")
+    
+class AuditLog:
+    def update(self, event):
+        print(f"[Log] {event}")
 
 class SavingAccount(Account):
     def __init__(self,owner, account_number, balance = 0, rate=0.05):
@@ -70,6 +74,7 @@ class AccountFactory:
 saving_account = AccountFactory.create("savings", "Tsion", "10005060", 2000)
 
 saving_account.subscribe(SMSAlert())
+saving_account.subscribe(AuditLog())
 saving_account.deposit(2000)
 saving_account.withdraw(500)
 

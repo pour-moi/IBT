@@ -50,18 +50,20 @@ class AuditLog:
         print(f"[Log] {event}")
 
 class SavingAccount(Account):
-    def __init__(self,owner, account_number, balance = 0, rate=0.05):
+    def __init__(self,owner, account_number, balance = 0, rate=None):
         super().__init__(owner, account_number, balance)
-        self.rate = rate
+        if rate is None:
+            self.rate = BankConfig().interest_rate
     def add_interest(self):
         self.deposit(self.balance * self.rate)
     def statement(self):
         print(f"Account Type: Saving Account\nName: {self.owner}\nAcc_no: {self.account_number}\nAmount: {self.balance} ETB")
 
 class CurrentAccount(Account):
-    def __init__(self,owner, account_number, balance=0, overdraft=1000):
+    def __init__(self,owner, account_number, balance=0, overdraft=None):
         super().__init__(owner, account_number, balance)
-        self.overdraft = overdraft
+        if overdraft is None:
+            self.overdraft = BankConfig().overdraft_limit
 
     def withdraw(self):
         pass

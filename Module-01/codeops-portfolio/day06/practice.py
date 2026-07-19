@@ -52,3 +52,24 @@ class AppSettings:
 as1 = AppSettings()
 as2 = AppSettings()
 print(as1.currency)
+
+#Factory
+
+class Circle:
+    pass
+
+class Square:
+    pass
+
+class Triangle:
+    pass
+
+class ShapeFactory:
+    def create(kind):
+        if kind == "Circle":
+            return Circle()
+        if kind == "Square":
+            return Square()
+        if kind == "Triangle":
+            return Triangle()
+        else raise ValueError("Unknown type: {kind}")

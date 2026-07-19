@@ -37,3 +37,18 @@ class RectangleShape(Shape):
     
     def calculate_area(self):
         return length * width
+
+#Singleton
+
+class AppSettings:
+    _instance = None
+    def __new__(cls):
+        _currency = "ETB"
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance.currency = "ETB"
+        return cls._instance
+
+as1 = AppSettings()
+as2 = AppSettings()
+print(as1.currency)

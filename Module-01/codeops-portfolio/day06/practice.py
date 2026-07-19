@@ -20,9 +20,8 @@ class ReportEmailer():
 class Shape(ABC):
     @abstractmethod
     def calculate_area(self):
-
+        pass
 class SquareShape(Shape):
-
     def __init__(self, side):
         self.side = side
     
@@ -49,9 +48,9 @@ class AppSettings:
             cls._instance.currency = "ETB"
         return cls._instance
 
-as1 = AppSettings()
-as2 = AppSettings()
-print(as1.currency)
+# as1 = AppSettings()
+# as2 = AppSettings()
+# print(as1.currency)
 
 #Factory
 
@@ -72,4 +71,29 @@ class ShapeFactory:
             return Square()
         if kind == "Triangle":
             return Triangle()
-        else raise ValueError("Unknown type: {kind}")
+        else:
+            raise ValueError("Unknown type: {kind}")
+
+class NewsAgency:
+    def __init__(self):
+        self._observers = []
+    def info(self):
+        self._notify("New article published")
+    def subscribe(self, observer):
+        self._observers.append(observer)
+    def _notify(self, event):
+        for observer in self._observers:
+            observer.update(event)
+
+class Radio:
+    def update(self, event):
+        print(f"[RADIO] {event}")
+
+class TV:
+    def update(self, event):
+        print(f"[TV] {event}")
+
+na = NewsAgency()
+na.subscribe(Radio())
+na.subscribe(TV())
+na.info()

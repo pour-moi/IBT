@@ -28,25 +28,66 @@ class Stack:
 
 # stack.list_stack()
 
-class Queue():
+# class Queue():
+#     def __init__(self):
+#         self.queue =[]
+    
+#     def enqueue(self, value):
+#         self.queue.append(value)
+    
+#     def dequeue(self):
+#         self.queue.remove(self.queue[0])
+    
+#     def list_queue(self):
+#         for value in self.queue:
+#             print(value)
+
+# queue = Queue()
+# queue.enqueue(1)
+# queue.enqueue(2)
+# queue.enqueue(3)
+# queue.dequeue()
+# queue.dequeue()
+
+# queue.list_queue()
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class LinkedList:
     def __init__(self):
-        self.queue =[]
+        self.head = None
     
-    def enqueue(self, value):
-        self.queue.append(value)
+    def push_front(self, value):
+        new_node = Node(value)
+        new_node.next = self.head
+        self.head = new_node
     
-    def dequeue(self):
-        self.queue.remove(self.queue[0])
+    def insert(self, value):
+        new_node = Node(value)
+        
+        if self.head is None:
+            self.head = new_node
+            return
+            
+        current = self.head
+        while current.next is not None:
+            current = current.next
+            
+        current.next = new_node
     
-    def list_queue(self):
-        for value in self.queue:
-            print(value)
+    def print_all(self):
+        current = self.head
+        while current is not None:
+            print(current.value)
+            current = current.next
 
-queue = Queue()
-queue.enqueue(1)
-queue.enqueue(2)
-queue.enqueue(3)
-queue.dequeue()
-queue.dequeue()
 
-queue.list_queue()
+ll = LinkedList()
+ll.insert(10)
+ll.insert(20)
+ll.insert(30)
+
+ll.print_all()

@@ -13,20 +13,24 @@ class Stack:
     
     def pop(self):
         self.stack.remove(len(self.stack))
+    
+    def peek(self):
+        return self.stack[-1]
 
     def list_stack(self):
         for value in self.stack:
             print(value)
-# stack = Stack()
+stack = Stack()
 
-# stack.push(1)
-# stack.push(2)
-# stack.push(3)
-# stack.pop()
-# stack.pop()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+stack.pop()
+stack.pop()
+print(stack.peek())
 
 
-# stack.list_stack()
+stack.list_stack()
 
 # class Queue():
 #     def __init__(self):
@@ -51,43 +55,43 @@ class Stack:
 
 # queue.list_queue()
 
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
+# class Node:
+#     def __init__(self, value):
+#         self.value = value
+#         self.next = None
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
     
-    def push_front(self, value):
-        new_node = Node(value)
-        new_node.next = self.head
-        self.head = new_node
+#     def push_front(self, value):
+#         new_node = Node(value)
+#         new_node.next = self.head
+#         self.head = new_node
     
-    def insert(self, value):
-        new_node = Node(value)
+#     def insert(self, value):
+#         new_node = Node(value)
         
-        if self.head is None:
-            self.head = new_node
-            return
+#         if self.head is None:
+#             self.head = new_node
+#             return
             
-        current = self.head
-        while current.next is not None:
-            current = current.next
+#         current = self.head
+#         while current.next is not None:
+#             current = current.next
             
-        current.next = new_node
+#         current.next = new_node
     
-    def print_all(self):
-        current = self.head
-        while current is not None:
-            print(current.value)
-            current = current.next
+#     def print_all(self):
+#         current = self.head
+#         while current is not None:
+#             print(current.value)
+#             current = current.next
 
 
-ll = LinkedList()
-ll.insert(10)
-ll.insert(20)
-ll.insert(30)
+# ll = LinkedList()
+# ll.insert(10)
+# ll.insert(20)
+# ll.insert(30)
 
-ll.print_all()
+# ll.print_all()

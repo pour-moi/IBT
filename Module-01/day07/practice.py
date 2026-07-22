@@ -5,14 +5,14 @@
 #binary search ... O(log n) binary search be dividing the list in two then drops the other one it will be log n (shortly it halfs the list)
 
 class Stack:
-    def __init__(self):
-        self.stack = []
+    def __init__(self, arr):
+        self.stack = arr
     
     def push(self, value):
         self.stack.append(value)
     
     def pop(self):
-        self.stack.remove(len(self.stack))
+        self.stack.pop(len(self.stack) - 1)
     
     def peek(self):
         return self.stack[-1]
@@ -20,17 +20,16 @@ class Stack:
     def list_stack(self):
         for value in self.stack:
             print(value)
-stack = Stack()
+names = ["almaz", "kebede", "abebe"]
+stack = Stack(names)
 
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.pop()
-stack.pop()
-print(stack.peek())
+# stack.push(1)
+# stack.push(2)
+# stack.push(3)
+# print(stack.peek())
 
 
-stack.list_stack()
+# stack.list_stack()
 
 # class Queue():
 #     def __init__(self):
@@ -54,6 +53,17 @@ stack.list_stack()
 # queue.dequeue()
 
 # queue.list_queue()
+
+from collections import deque
+
+
+customers_queue = deque(["Abe", "Ku", "Zion", "KB", "Sarah"])
+
+for customer in list(customers_queue):
+    print(f"Served Customer: {customer}")
+    customers_queue.popleft()
+    print(f"Remaining Customers: {customers_queue}")
+# print(customers_queue)
 
 # class Node:
 #     def __init__(self, value):
@@ -95,3 +105,36 @@ stack.list_stack()
 # ll.insert(30)
 
 # ll.print_all()
+
+# import time
+
+# # Create 100,000 fake account numbers
+# accounts_list = [f"ACC{i:06}" for i in range(10000000000000000000)]
+# accounts_dict = {f"ACC{i:06}": f"User {i}" for i in range(10000000000000000000)}
+
+# # Account to search (near the end)
+# target = "ACC0999999999999"
+
+# # -----------------------
+# # List lookup
+# # -----------------------
+# start = time.perf_counter()
+
+# found = target in accounts_list
+
+# end = time.perf_counter()
+
+# print("List found:", found)
+# print("List lookup time:", end - start)
+
+# # -----------------------
+# # Dictionary lookup
+# # -----------------------
+# start = time.perf_counter()
+
+# found = target in accounts_dict
+
+# end = time.perf_counter()
+
+# print("Dict found:", found)
+# print("Dict lookup time:", end - start)

@@ -69,7 +69,7 @@ class CurrentAccount(Account):
         pass
     def statement(self):
         print(f"Account Type: Current Account\nName: {self.owner}\nAcc_no: {self.account_number}\nAmount: {self.balance} ETB")
-
+ 
 class AccountFactory:
     @staticmethod
     def create(kind, owner, account_number, balance):

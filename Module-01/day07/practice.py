@@ -54,15 +54,15 @@ stack = Stack(names)
 
 # queue.list_queue()
 
-from collections import deque
+# from collections import deque
 
 
-customers_queue = deque(["Abe", "Ku", "Zion", "KB", "Sarah"])
+# customers_queue = deque(["Abe", "Ku", "Zion", "KB", "Sarah"])
 
-for customer in list(customers_queue):
-    print(f"Served Customer: {customer}")
-    customers_queue.popleft()
-    print(f"Remaining Customers: {customers_queue}")
+# for customer in list(customers_queue):
+#     print(f"Served Customer: {customer}")
+#     customers_queue.popleft()
+#     print(f"Remaining Customers: {customers_queue}")
 # print(customers_queue)
 
 # class Node:
@@ -138,3 +138,56 @@ for customer in list(customers_queue):
 
 # print("Dict found:", found)
 # print("Dict lookup time:", end - start)
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class LinkedList:
+    def __init__(self, value):
+        self.head = Node(value)
+    
+    def insert(self, value):
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+            return
+
+        current = self.head
+        while current.next is not None:
+            current = current.next
+        
+        current.next = new_node
+    
+    def delete_front(self):
+        if self.head is None:
+            return -1
+        current = self.head
+        current = current.next
+        self.head = current
+    
+    def delete_last(self):
+        if self.head is None:
+            return -1
+        current = self.head
+        while current.next.next is not None:
+            current = current.next
+        current.next = None
+    
+    def print_list(self):
+        current = self.head
+        while current is not None:
+            print(current.value)
+            current = current.next
+
+linked_list = LinkedList(2)
+linked_list.insert(3)
+linked_list.insert(3)
+linked_list.insert(3)
+# linked_list.delete_front()
+# linked_list.delete_front()
+linked_list.delete_last()
+linked_list.delete_last()
+
+linked_list.print_list()
